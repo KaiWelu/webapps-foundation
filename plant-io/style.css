@@ -28,4 +28,6 @@ main {
 .plant-tile {
   background-color: var(--first-color);
   padding: var(--standard-padding);
+  border-radius: 0.2rem;
+  box-shadow: 0.1rem 0.1rem 0.4rem grey;
 }
