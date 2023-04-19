@@ -1,0 +1,31 @@
+:root {
+  --background-color: rgba(246, 246, 209, 0.993);
+  --first-color: rgb(134, 179, 120);
+
+  --standard-padding: 1rem;
+}
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Dosis", sans-serif;
+}
+
+body {
+  width: 80vmin;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+}
+h1 {
+  font-family: "Amatic SC", cursive;
+}
+main {
+}
+
+.plant-tile {
+  background-color: var(--first-color);
+  padding: var(--standard-padding);
+}
