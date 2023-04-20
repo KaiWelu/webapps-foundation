@@ -29,3 +29,16 @@ clickListener.addEventListener("click", function (event) {
   console.log("There was a click!");
   event.stopPropagation(); //this stops the propagation, sometimes useful to stop click events for example
 });
+
+/* After this line the real code starts for Plant I/O */
+
+class Plant {
+  constructor(name, latinName, image, description, user, rating) {
+    this.name = name;
+    this.latinName = latinName;
+    this.image = image;
+    this.description = description;
+    this.user = user;
+    this.rating = rating;
+  }
+}
