@@ -42,3 +42,16 @@ class Plant {
     this.rating = rating;
   }
 }
+
+// this is an testobject for the Plant class
+
+const testPLant = new Plant(
+  "Calathea",
+  "Calathea Rufibarba",
+  "./plant_img/test_plant_pic.jpg",
+  "Calathea rufibarba ist eine tropische Blattschmuckpflanze, die in den feucht-warmen Regenwäldern Mittel- und Südamerikas beheimatet ist. Für die Art gibt es bisher keinen geläufigen deutschen Namen den botanischen Namen könnte man frei als 'Rotbart-Korbmarante' übersetzen. Botanisch gehört die Gattung Calathea zur Familie der Pfeilwurzgewächse (Marantaceae). Bei uns lässt sich Calathea rufibarba als Zimmerpflanze kultivieren sofern man ein paar Punkte bei der Pflege beachtet.",
+  "Kai",
+  []
+);
+
+console.log(testPLant);
