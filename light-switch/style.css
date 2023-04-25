@@ -1,0 +1,14 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+main {
+  position: relative;
+}
+
+button {
+  position: absolute;
+  top: 20vmax;
+  left: 45%;
+}
