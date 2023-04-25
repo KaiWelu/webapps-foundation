@@ -12,3 +12,12 @@ button {
   top: 20vmax;
   left: 45%;
 }
+
+.light-switch {
+  background-color: hotpink;
+  font-size: 4rem;
+}
+
+.light-switch-off {
+  background-color: blue;
+}
