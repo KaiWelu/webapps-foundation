@@ -1,23 +1,39 @@
-body {
+html {
   box-sizing: border-box;
+}
+body {
   margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s ease-in-out;
+  background-color: white;
+}
+
+.dark-body {
+  background-color: black;
 }
 
 main {
-  position: relative;
+  margin-top: 20vmax;
 }
 
 button {
-  position: absolute;
-  top: 20vmax;
-  left: 45%;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 4rem;
+  border: 0;
+  padding: 1rem;
 }
 
 .light-switch {
-  background-color: hotpink;
-  font-size: 4rem;
+  background-color: lightgreen;
+  box-shadow: 5px 5px black;
 }
 
 .light-switch-off {
-  background-color: blue;
+  color: lightgreen;
+  background-color: black;
+  box-shadow: 0px 0px black;
+  text-shadow: 0 0 10px green, 0 0 10px green;
+  transition: 1s ease-in-out;
 }

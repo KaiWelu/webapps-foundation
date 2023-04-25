@@ -1,5 +1,6 @@
 const title = document.querySelector("title");
 const lightSwitch = document.querySelector("button");
+const background = document.querySelector("body");
 // this adds a eventlistener to the button
 lightSwitch.addEventListener("click", function (event) {
   console.log("registered click on light-switch");
@@ -15,4 +16,5 @@ lightSwitch.addEventListener("click", function (event) {
   }
 
   //this changes the background color
+  background.classList.toggle("dark-body");
 });
