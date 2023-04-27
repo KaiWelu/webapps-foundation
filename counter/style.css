@@ -1,4 +1,5 @@
 :root {
+  --background-border: 0%;
 }
 
 html {
@@ -30,6 +31,12 @@ main {
   justify-content: center;
   align-items: center;
   height: 80%;
-  background-color: yellow;
+  background: linear-gradient(
+    to right,
+    yellow var(--background-border),
+    white var(--background-border)
+  );
   font-size: 8rem;
+  /* this prevents selecting the text */
+  user-select: none;
 }
