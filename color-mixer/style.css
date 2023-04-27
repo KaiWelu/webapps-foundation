@@ -29,7 +29,7 @@ input[type="range"] {
   _background-color: hotpink;
 }
 
-input[type="range"]::-webkit-slider-runnable-track {
+_input[type="range"]::-webkit-slider-runnable-track {
   background-color: hotpink;
 }
 
@@ -47,6 +47,18 @@ input[type="range"]::-webkit-slider-runnable-track {
   justify-content: end;
   margin-right: 1rem;
   font-size: 2rem;
+}
+
+#red {
+  accent-color: red;
+}
+
+#green {
+  accent-color: green;
+}
+
+#blue {
+  accent-color: blue;
 }
 
 main {
