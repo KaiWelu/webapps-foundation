@@ -1,0 +1,29 @@
+html {
+  box-sizing: border-box;
+  height: 100vh;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+input {
+  width: 2rem;
+  height: 2rem;
+}
+
+label {
+  font-size: 4rem;
+  padding: 1rem;
+}
