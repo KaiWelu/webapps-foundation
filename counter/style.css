@@ -1,0 +1,32 @@
+html {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+
+header {
+  position: relative;
+  padding: 1rem;
+  background-color: hotpink;
+  height: 20%;
+}
+
+#reset-button {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  border: 0;
+  font-size: 2rem;
+  background-color: white;
+}
+body {
+  height: 100vh;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  background-color: white;
+  font-size: 8rem;
+}
