@@ -11,7 +11,7 @@ html {
 header {
   position: relative;
   padding: 1rem;
-  background-color: hotpink;
+  background-color: gold;
   height: 20%;
 }
 
@@ -33,7 +33,7 @@ main {
   height: 80%;
   background: linear-gradient(
     to right,
-    yellow var(--background-border),
+    dodgerblue var(--background-border),
     white var(--background-border)
   );
   font-size: 8rem;
