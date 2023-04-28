@@ -22,6 +22,7 @@ header {
   border: 0;
   font-size: 2rem;
   background-color: white;
+  font-family: "Courier New", Courier, monospace;
 }
 body {
   height: 90vh;

@@ -15,7 +15,7 @@ function incrementCounter() {
   }
 }
 
-// adds eventlisteners for clicks
+// adds event listeners for clicks
 counterDisplay.addEventListener("click", () => {
   incrementCounter();
 });
