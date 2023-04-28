@@ -10,6 +10,10 @@ function addLotteryNumber() {
     return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
   }
   const number = getRandomIntInclusive(1, 49);
+  //make it unique
+  if (numberArray.includes(number) === true) {
+    number = getRandomIntInclusive(1, 49);
+  }
 
   // push the number to the array
   numberArray.push(number);
@@ -33,7 +37,9 @@ function renderNumbers() {
 }
 
 // function for saving the numbers
-function saveToLocal() {}
+function saveToLocal() {
+  localStorage.setItem("numberArray", JSON.stringify(numberArray));
+}
 
 // event listener for the pick random number button
 const resetButton = document.body.querySelector("#reset-button");
@@ -50,6 +56,7 @@ pickButton.addEventListener("click", () => {
     pickButton.classList.add("header-button-greyed");
   }
   renderNumbers();
+  saveToLocal();
 });
 
 // event listener for the reset button
@@ -62,4 +69,16 @@ resetButton.addEventListener("click", () => {
     resetButton.classList.add("header-button-greyed");
     renderNumbers();
   }
+  localStorage.clear();
 });
+
+// let localOutput = JSON.parse(localStorage.getItem("numberArray"));
+// console.log(localOutput);
+// console.log(localStorage.getItem("numberArray"));
+
+if (localStorage.getItem("numberArray") !== null) {
+  numberArray = JSON.parse(localStorage.getItem("numberArray"));
+  console.log(numberArray);
+  console.log("Es feuert");
+  renderNumbers();
+}
