@@ -20,19 +20,10 @@ function addLotteryNumber() {
   });
 }
 
-// addLotteryNumber();
-// addLotteryNumber();
-// addLotteryNumber();
-// addLotteryNumber();
-// addLotteryNumber();
-// addLotteryNumber();
-// console.log(numberArray);
-
 //function for rendering the array in the DOM
 function renderNumbers() {
   document.body.querySelector("main").innerHTML = "";
   numberArray.forEach((element) => {
-    console.log(element);
     const newNumberDiv = document.createElement("div");
     const newNumber = document.createTextNode(element);
     newNumberDiv.appendChild(newNumber);
@@ -41,20 +32,34 @@ function renderNumbers() {
   });
 }
 
-renderNumbers();
-
-// function for resetting the numbers
-
 // function for saving the numbers
+function saveToLocal() {}
 
 // event listener for the pick random number button
+const resetButton = document.body.querySelector("#reset-button");
 const pickButton = document.body.querySelector("#pick-button");
-pickButton.addEventListener("click", () => {
-  if (numberArray.length < 6) {
-    addLotteryNumber();
-  }
 
+pickButton.addEventListener("click", () => {
+  if (numberArray.length < 5) {
+    addLotteryNumber();
+    resetButton.classList.remove("header-button-greyed");
+    resetButton.classList.add("header-button");
+  } else if (numberArray.length < 6) {
+    addLotteryNumber();
+    pickButton.classList.remove("header-button");
+    pickButton.classList.add("header-button-greyed");
+  }
   renderNumbers();
 });
 
 // event listener for the reset button
+resetButton.addEventListener("click", () => {
+  if (numberArray.length !== 0) {
+    numberArray.length = 0;
+    pickButton.classList.remove("header-button-greyed");
+    pickButton.classList.add("header-button");
+    resetButton.classList.remove("header-button");
+    resetButton.classList.add("header-button-greyed");
+    renderNumbers();
+  }
+});
