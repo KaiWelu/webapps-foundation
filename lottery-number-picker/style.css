@@ -1,9 +1,10 @@
 html {
   box-sizing: border-box;
+  height: 100vh;
 }
 
 body {
-  height: 100vh;
+  height: 100%;
   margin: 0;
   position: relative;
   _background-color: aquamarine;
@@ -31,12 +32,29 @@ h1 {
 
 .header-button {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  border: 0;
+  color: black;
+  background-color: white;
+}
+
+.header-button-greyed {
+  border: 0;
+  color: grey;
+  background-color: lightgrey;
 }
 
 main {
   height: 100%;
   background-color: hotpink;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 1rem;
 }
 
 .lottery-number {
+  margin-top: 30vh;
+  width: 10vh;
+  height: 10vh;
+  background-color: aliceblue;
 }

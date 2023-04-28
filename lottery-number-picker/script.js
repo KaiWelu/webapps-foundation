@@ -20,21 +20,41 @@ function addLotteryNumber() {
   });
 }
 
-addLotteryNumber();
-addLotteryNumber();
-addLotteryNumber();
-addLotteryNumber();
-addLotteryNumber();
-addLotteryNumber();
-console.log(numberArray);
+// addLotteryNumber();
+// addLotteryNumber();
+// addLotteryNumber();
+// addLotteryNumber();
+// addLotteryNumber();
+// addLotteryNumber();
+// console.log(numberArray);
 
 //function for rendering the array in the DOM
-function renderNumbers() {}
+function renderNumbers() {
+  document.body.querySelector("main").innerHTML = "";
+  numberArray.forEach((element) => {
+    console.log(element);
+    const newNumberDiv = document.createElement("div");
+    const newNumber = document.createTextNode(element);
+    newNumberDiv.appendChild(newNumber);
+    newNumberDiv.classList.add("lottery-number");
+    document.body.querySelector("main").appendChild(newNumberDiv);
+  });
+}
+
+renderNumbers();
 
 // function for resetting the numbers
 
 // function for saving the numbers
 
 // event listener for the pick random number button
+const pickButton = document.body.querySelector("#pick-button");
+pickButton.addEventListener("click", () => {
+  if (numberArray.length < 6) {
+    addLotteryNumber();
+  }
+
+  renderNumbers();
+});
 
 // event listener for the reset button
