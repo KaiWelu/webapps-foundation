@@ -78,7 +78,7 @@ resetButton.addEventListener("click", () => {
 
 if (localStorage.getItem("numberArray") !== null) {
   numberArray = JSON.parse(localStorage.getItem("numberArray"));
-  console.log(numberArray);
-  console.log("Es feuert");
+  resetButton.classList.remove("header-button-greyed");
+  resetButton.classList.add("header-button");
   renderNumbers();
 }
