@@ -1,5 +1,5 @@
 // array that keeps track of the numbers
-let numberArray = []; // max length of 6
+let numberArray = [];
 
 // function for picking numbers, push them into the array and then sort the array
 function addLotteryNumber() {
@@ -17,15 +17,14 @@ function addLotteryNumber() {
 
   // push the number to the array
   numberArray.push(number);
-
-  // sort the array in ascending order
-  numberArray.sort((a, b) => {
-    return a - b;
-  });
 }
 
 //function for rendering the array in the DOM
 function renderNumbers() {
+  // sort the array in ascending order
+  numberArray.sort((a, b) => {
+    return a - b;
+  });
   document.body.querySelector("main").innerHTML = "";
   numberArray.forEach((element) => {
     const newNumberDiv = document.createElement("div");
