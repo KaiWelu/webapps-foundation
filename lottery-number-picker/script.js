@@ -71,10 +71,6 @@ resetButton.addEventListener("click", () => {
   localStorage.clear();
 });
 
-// let localOutput = JSON.parse(localStorage.getItem("numberArray"));
-// console.log(localOutput);
-// console.log(localStorage.getItem("numberArray"));
-
 if (localStorage.getItem("numberArray") !== null) {
   numberArray = JSON.parse(localStorage.getItem("numberArray"));
   resetButton.classList.remove("header-button-greyed");
