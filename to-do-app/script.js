@@ -6,8 +6,6 @@ class Todo {
   }
 }
 
-let toDoList = [];
-
 let stateObject = {
   filter: "all",
   entries: [],
@@ -24,25 +22,6 @@ function isDuplicate(input) {
   return false;
 }
 
-function filterList(rule) {
-  toDoList = [];
-  if (rule === "done") {
-    stateObject.entries.forEach((element) => {
-      if (element.checked === true) {
-        toDoList.push(element);
-      }
-    });
-  } else if (rule === "undone") {
-    stateObject.entries.forEach((element) => {
-      if (element.checked === false) {
-        toDoList.push(element);
-      }
-    });
-  } else {
-    toDoList = [...stateObject.entries];
-  }
-}
-
 function saveToLocal() {
   localStorage.setItem("stateObject", JSON.stringify(stateObject));
 }
@@ -54,42 +33,41 @@ function initialState() {
   }
 }
 
-function createListElement() {
-  toDoList.forEach((element) => {
-    // creates new list element with the description of the task
-    const newLi = document.createElement("li");
-    const textDiv = document.createElement("div");
-    const newDescription = document.createTextNode(element.description);
-    textDiv.setAttribute("data-id", element.id.toString());
-
-    // creates a checkbox after the todo
-    const checkBox = document.createElement("input");
-    checkBox.type = "checkbox";
-    checkBox.checked = element.checked;
-    checkBox.setAttribute("data-id", element.id.toString());
-
-    // puts the element togehter and appends it to the DOM
-    textDiv.append(newDescription);
-    newLi.append(textDiv);
-    newLi.append(checkBox);
-    document.querySelector("#list").append(newLi);
-
-    // adds a delete function
-    textDiv.addEventListener("click", (event) => {
-      for (let i = 0; i < stateObject.entries.length; i++) {
-        if (stateObject.entries[i].id == event.target.getAttribute("data-id")) {
-          stateObject.entries.splice(i, 1);
-        }
-      }
-      renderToDoList();
-    });
-  });
+function createElement(element) {
+  // creates new list element with the description of the task
+  const newLi = document.createElement("li");
+  const newDescription = document.createTextNode(element.description);
+  // creates a checkbox after the todo
+  const checkBox = document.createElement("input");
+  checkBox.type = "checkbox";
+  checkBox.checked = element.checked;
+  checkBox.setAttribute("data-id", element.id.toString());
+  // puts the element togehter and puts it into the DOM
+  newLi.append(newDescription);
+  newLi.append(checkBox);
+  return newLi;
 }
 
 function renderToDoList() {
   document.querySelector("#list").innerHTML = "";
-  filterList(stateObject.filter);
-  createListElement();
+
+  if (stateObject.filter === "done") {
+    stateObject.entries.forEach((element) => {
+      if (element.checked === true) {
+        document.querySelector("#list").append(createElement(element));
+      }
+    });
+  } else if (stateObject.filter === "undone") {
+    stateObject.entries.forEach((element) => {
+      if (element.checked === false) {
+        document.querySelector("#list").append(createElement(element));
+      }
+    });
+  } else {
+    stateObject.entries.forEach((element) => {
+      document.querySelector("#list").append(createElement(element));
+    });
+  }
   saveToLocal();
 }
 
@@ -116,17 +94,12 @@ document.querySelector("#list").addEventListener("change", (event) => {
   renderToDoList();
 });
 
-// event listener for radio buttons
+// event listener for the radio buttons
 const radioButtons = document.querySelector("#radio-buttons");
 radioButtons.addEventListener("change", (event) => {
   stateObject.filter = event.target.id;
   renderToDoList();
 });
 
+//sets the initial state when you load the site for the first time
 initialState();
-// renderToDoList();
-
-// const test = document.querySelector("#test");
-// test.addEventListener("click", (event) => {
-//   test.remove();
-// });

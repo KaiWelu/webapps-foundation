@@ -21,7 +21,13 @@ main {
   gap: 2rem;
 }
 
+ul {
+  list-style: none;
+}
+
 li {
+  display: flex;
+  gap: 0.5rem;
   text-decoration: line-through transparent;
   transition: text-decoration 0.5s ease-in-out;
 }
