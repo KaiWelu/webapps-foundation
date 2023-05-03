@@ -8,15 +8,10 @@ class Todo {
 
 let toDoList = [];
 
-const stateObject = {
+let stateObject = {
   filter: "all",
   entries: [],
 };
-
-stateObject.entries.push(new Todo(Date.now() + 1, "Wäsche", false));
-stateObject.entries.push(new Todo(Date.now() + 2, "Einkaufen", true));
-stateObject.entries.push(new Todo(Date.now() + 3, "Aufräumen", false));
-console.log(stateObject.entries);
 
 function isDuplicate(input) {
   for (let i = 0; i < stateObject.entries.length; i++) {
@@ -30,6 +25,7 @@ function isDuplicate(input) {
 }
 
 function filterList(rule) {
+  toDoList = [];
   if (rule === "done") {
     stateObject.entries.forEach((element) => {
       if (element.checked === true) {
@@ -47,9 +43,18 @@ function filterList(rule) {
   }
 }
 
-function renderToDoList() {
-  document.querySelector("#list").innerHTML = "";
-  filterList("undone");
+function saveToLocal() {
+  localStorage.setItem("stateObject", JSON.stringify(stateObject));
+}
+
+function initialState() {
+  if (localStorage.getItem("stateObject") !== null) {
+    stateObject = JSON.parse(localStorage.getItem("stateObject"));
+    renderToDoList();
+  }
+}
+
+function createListElement() {
   toDoList.forEach((element) => {
     const newLi = document.createElement("li");
     const newDescription = document.createTextNode(element.description);
@@ -61,6 +66,13 @@ function renderToDoList() {
     newLi.append(checkBox);
     document.querySelector("#list").append(newLi);
   });
+}
+
+function renderToDoList() {
+  document.querySelector("#list").innerHTML = "";
+  filterList(stateObject.filter);
+  createListElement();
+  saveToLocal();
 }
 
 //event listener for button clicks
@@ -83,6 +95,15 @@ document.querySelector("#list").addEventListener("change", (event) => {
       element.checked = event.target.checked;
     }
   });
+  renderToDoList();
 });
 
-renderToDoList();
+// event listener for radio buttons
+const radioButtons = document.querySelector("#radio-buttons");
+radioButtons.addEventListener("change", (event) => {
+  stateObject.filter = event.target.id;
+  renderToDoList();
+});
+
+initialState();
+// renderToDoList();
