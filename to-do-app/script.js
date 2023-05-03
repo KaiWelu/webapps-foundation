@@ -56,15 +56,33 @@ function initialState() {
 
 function createListElement() {
   toDoList.forEach((element) => {
+    // creates new list element with the description of the task
     const newLi = document.createElement("li");
+    const textDiv = document.createElement("div");
     const newDescription = document.createTextNode(element.description);
+    textDiv.setAttribute("data-id", element.id.toString());
+
+    // creates a checkbox after the todo
     const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
     checkBox.checked = element.checked;
     checkBox.setAttribute("data-id", element.id.toString());
-    newLi.append(newDescription);
+
+    // puts the element togehter and appends it to the DOM
+    textDiv.append(newDescription);
+    newLi.append(textDiv);
     newLi.append(checkBox);
     document.querySelector("#list").append(newLi);
+
+    // adds a delete function
+    textDiv.addEventListener("click", (event) => {
+      for (let i = 0; i < stateObject.entries.length; i++) {
+        if (stateObject.entries[i].id == event.target.getAttribute("data-id")) {
+          stateObject.entries.splice(i, 1);
+        }
+      }
+      renderToDoList();
+    });
   });
 }
 
@@ -107,3 +125,8 @@ radioButtons.addEventListener("change", (event) => {
 
 initialState();
 // renderToDoList();
+
+// const test = document.querySelector("#test");
+// test.addEventListener("click", (event) => {
+//   test.remove();
+// });

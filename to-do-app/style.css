@@ -20,3 +20,12 @@ main {
   flex-direction: column;
   gap: 2rem;
 }
+
+li {
+  text-decoration: line-through transparent;
+  transition: text-decoration 0.5s ease-in-out;
+}
+
+li:hover {
+  text-decoration: line-through;
+}
