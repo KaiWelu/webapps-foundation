@@ -5,3 +5,18 @@ html {
 body {
   margin: 0;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.todo-tile {
+  background-color: hotpink;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

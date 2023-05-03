@@ -6,24 +6,50 @@ class Todo {
   }
 }
 
-const toDoList = [];
+let toDoList = [];
 
-toDoList.push(new Todo(Date.now() + 1, "Wäsche", false));
-toDoList.push(new Todo(Date.now() + 2, "Einkaufen", true));
-toDoList.push(new Todo(Date.now() + 3, "Aufräumen", false));
-console.log(toDoList);
+const stateObject = {
+  filter: "all",
+  entries: [],
+};
+
+stateObject.entries.push(new Todo(Date.now() + 1, "Wäsche", false));
+stateObject.entries.push(new Todo(Date.now() + 2, "Einkaufen", true));
+stateObject.entries.push(new Todo(Date.now() + 3, "Aufräumen", false));
+console.log(stateObject.entries);
 
 function isDuplicate(input) {
-  for (let i = 0; i < toDoList.length; i++) {
-    if (toDoList[i].description.toLowerCase() === input.toLowerCase()) {
+  for (let i = 0; i < stateObject.entries.length; i++) {
+    if (
+      stateObject.entries[i].description.toLowerCase() === input.toLowerCase()
+    ) {
       return true;
     }
   }
   return false;
 }
 
+function filterList(rule) {
+  if (rule === "done") {
+    stateObject.entries.forEach((element) => {
+      if (element.checked === true) {
+        toDoList.push(element);
+      }
+    });
+  } else if (rule === "undone") {
+    stateObject.entries.forEach((element) => {
+      if (element.checked === false) {
+        toDoList.push(element);
+      }
+    });
+  } else {
+    toDoList = [...stateObject.entries];
+  }
+}
+
 function renderToDoList() {
   document.querySelector("#list").innerHTML = "";
+  filterList("undone");
   toDoList.forEach((element) => {
     const newLi = document.createElement("li");
     const newDescription = document.createTextNode(element.description);
@@ -43,7 +69,7 @@ document.querySelector("#add-todo").addEventListener("click", () => {
   if (isDuplicate(description) === false) {
     const id = Date.now();
     const toDo = new Todo(id, description, false);
-    toDoList.push(toDo);
+    stateObject.entries.push(toDo);
     renderToDoList();
   }
 });
@@ -52,13 +78,11 @@ document.querySelector("#add-todo").addEventListener("click", () => {
 document.querySelector("#list").addEventListener("change", (event) => {
   const id = event.target.getAttribute("data-id");
   // find a way to access the value directly
-  toDoList.forEach((element) => {
+  stateObject.entries.forEach((element) => {
     if (element.id == id) {
       element.checked = event.target.checked;
     }
   });
 });
-
-function renderState() {}
 
 renderToDoList();

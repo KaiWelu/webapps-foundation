@@ -10,20 +10,25 @@
 </head>
 
 <body>
-    <h1>To Do List</h1>
-    <fieldset>
-        <legend>Filter:</legend>
-        <input type="radio" name="filter" id="all">
-        <label for="all">All</label>
-        <input type="radio" name="filter" id="done">
-        <label for="done">Done</label>
-        <input type="radio" name="filter" id="undone">
-        <label for="undone">Undone</label>
-    </fieldset>
-    <input type="text" id="new-todo">
-    <button id="add-todo">Add</button>
-    <ul id="list">
-    </ul>
+    <main>
+        <h1>To Do List</h1>
+        <div class="todo-tile">
+            <fieldset>
+                <legend>Filter:</legend>
+                <input type="radio" name="filter" id="all">
+                <label for="all">All</label>
+                <input type="radio" name="filter" id="done">
+                <label for="done">Done</label>
+                <input type="radio" name="filter" id="undone">
+                <label for="undone">Undone</label>
+            </fieldset>
+            <div class="addfield"><input type="text" id="new-todo">
+                <button id="add-todo">Add</button>
+            </div>
+            <ul id="list">
+            </ul>
+        </div>
+    </main>
     <script src="script.js"></script>
 </body>
 
