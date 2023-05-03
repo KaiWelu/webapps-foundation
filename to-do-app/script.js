@@ -68,6 +68,7 @@ function renderToDoList() {
       document.querySelector("#list").append(createElement(element));
     });
   }
+
   saveToLocal();
 }
 

@@ -4,34 +4,64 @@ html {
 
 body {
   margin: 0;
+  background-color: lightyellow;
+  font-family: "Assistant", sans-serif;
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
 }
 
-.todo-tile {
-  background-color: hotpink;
+h1 {
+  width: 20%;
+  padding: 1rem;
+  margin: 0;
+  text-align: center;
+  background-color: white;
+  border: 0.1rem solid grey;
+  box-shadow: 0.2rem 0.2rem lightgray;
+}
+
+.input-tile {
+  width: 20%;
+  _background-color: hotpink;
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
+  background-color: white;
+  border: 0.1rem solid grey;
+  box-shadow: 0.2rem 0.2rem lightgray;
+}
+
+.list-tile {
+  font-family: "Caveat", cursive;
+  width: 20%;
+  background-color: white;
+  padding: 2rem;
+  border: 0.1rem solid grey;
+  box-shadow: 0.2rem 0.2rem lightgray;
 }
 
 ul {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 
 li {
+  font-size: 1.5rem;
   display: flex;
   gap: 0.5rem;
-  text-decoration: line-through transparent;
-  transition: text-decoration 0.5s ease-in-out;
 }
 
-li:hover {
-  text-decoration: line-through;
+li input {
 }
