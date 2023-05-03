@@ -13,6 +13,15 @@ toDoList.push(new Todo(Date.now() + 2, "Einkaufen", true));
 toDoList.push(new Todo(Date.now() + 3, "Aufräumen", false));
 console.log(toDoList);
 
+function isDuplicate(input) {
+  for (let i = 0; i < toDoList.length; i++) {
+    if (toDoList[i].description.toLowerCase() === input.toLowerCase()) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function renderToDoList() {
   document.querySelector("#list").innerHTML = "";
   toDoList.forEach((element) => {
@@ -30,16 +39,19 @@ function renderToDoList() {
 
 //event listener for button clicks
 document.querySelector("#add-todo").addEventListener("click", () => {
-  const id = Date.now();
   const description = document.querySelector("#new-todo").value;
-  const toDo = new Todo(id, description, false);
-  toDoList.push(toDo);
-  renderToDoList();
+  if (isDuplicate(description) === false) {
+    const id = Date.now();
+    const toDo = new Todo(id, description, false);
+    toDoList.push(toDo);
+    renderToDoList();
+  }
 });
 
 // event listener for the checkboxes
 document.querySelector("#list").addEventListener("change", (event) => {
   const id = event.target.getAttribute("data-id");
+  // find a way to access the value directly
   toDoList.forEach((element) => {
     if (element.id == id) {
       element.checked = event.target.checked;
