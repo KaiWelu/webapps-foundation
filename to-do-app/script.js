@@ -102,5 +102,17 @@ radioButtons.addEventListener("change", (event) => {
   renderToDoList();
 });
 
+// event listener for clear button
+const clear = document.querySelector("#clear");
+clear.addEventListener("click", () => {
+  stateObject.entries = stateObject.entries.filter((element) => {
+    if (element.checked === false) {
+      return element;
+    }
+  });
+  console.log(stateObject.entries);
+  renderToDoList();
+});
+
 //sets the initial state when you load the site for the first time
 initialState();
