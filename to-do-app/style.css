@@ -17,7 +17,7 @@ main {
 }
 
 h1 {
-  width: 30%;
+  width: 80%;
   padding: 1rem 2rem 1rem 2rem;
   margin: 0;
   margin-top: 2rem;
@@ -28,7 +28,7 @@ h1 {
 }
 
 .input-tile {
-  width: 30%;
+  width: 80%;
   _background-color: hotpink;
   padding: 2rem;
   display: flex;
@@ -46,8 +46,9 @@ h1 {
 }
 
 .list-tile {
+  _font-family: "Assistant", sans-serif;
   font-family: "Caveat", cursive;
-  width: 30%;
+  width: 80%;
   background-color: white;
   padding: 2rem;
   border: 0.1rem solid grey;
@@ -65,11 +66,17 @@ ul {
 }
 
 li {
-  font-size: 1.5rem;
+  font-size: 2rem;
   display: flex;
   gap: 0.5rem;
 }
 
 li input {
   font-family: "Assistant", sans-serif;
+}
+
+.crossed {
+  text-decoration: line-through;
+  text-decoration-color: red;
+  color: gray;
 }

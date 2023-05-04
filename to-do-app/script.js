@@ -37,6 +37,11 @@ function createElement(element) {
   // creates new list element with the description of the task
   const newLi = document.createElement("li");
   const newDescription = document.createTextNode(element.description);
+  // add a line through if checked
+  if (element.checked === true) {
+    newLi.classList.add("crossed");
+  }
+
   // creates a checkbox after the todo
   const checkBox = document.createElement("input");
   checkBox.type = "checkbox";
@@ -92,6 +97,9 @@ document.querySelector("#list").addEventListener("change", (event) => {
       element.checked = event.target.checked;
     }
   });
+  // cross out the text
+  console.log(event.target.parentElement);
+  event.target.parentElement.classList.toggle("line-through");
   renderToDoList();
 });
 
