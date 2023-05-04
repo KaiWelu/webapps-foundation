@@ -12,12 +12,11 @@ let stateObject = {
 };
 
 function isDuplicate(input) {
-  for (let i = 0; i < stateObject.entries.length; i++) {
-    if (
-      stateObject.entries[i].description.toLowerCase() === input.toLowerCase()
-    ) {
-      return true;
-    }
+  if (
+    stateObject.entries.find((element) => element.description === input) !==
+    undefined
+  ) {
+    return true;
   }
   return false;
 }
@@ -41,7 +40,6 @@ function createElement(element) {
   if (element.checked === true) {
     newLi.classList.add("crossed");
   }
-
   // creates a checkbox after the todo
   const checkBox = document.createElement("input");
   checkBox.type = "checkbox";
@@ -97,9 +95,6 @@ document.querySelector("#list").addEventListener("change", (event) => {
       element.checked = event.target.checked;
     }
   });
-  // cross out the text
-  console.log(event.target.parentElement);
-  event.target.parentElement.classList.toggle("line-through");
   renderToDoList();
 });
 

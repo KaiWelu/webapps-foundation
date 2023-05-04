@@ -68,6 +68,9 @@ ul {
 li {
   font-size: 2rem;
   display: flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: space-between;
   gap: 0.5rem;
 }
 
@@ -88,6 +91,7 @@ button {
 input[type="checkbox"] {
   margin: 0;
   width: 1rem;
+  height: 1rem;
 }
 
 .crossed {
