@@ -75,6 +75,21 @@ li input {
   font-family: "Assistant", sans-serif;
 }
 
+input[type="text"] {
+  font-size: 1rem;
+  font-family: "Assistant", sans-serif;
+}
+
+button {
+  font-size: 1rem;
+  font-family: "Assistant", sans-serif;
+}
+
+input[type="checkbox"] {
+  margin: 0;
+  width: 1rem;
+}
+
 .crossed {
   text-decoration: line-through;
   text-decoration-color: red;
